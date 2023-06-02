@@ -3,7 +3,7 @@ import { VerRequest} from "./soap.js";
 import { verVendedores, crearVendedor, verVendedor,borrarVendedor, modificarVendedor } from "./Rest.js";
 
 // Ver todas las definiciones
-const app = express();
+
 const definicionTipos = gql`
     type Venta {
         id: Int!
@@ -147,7 +147,7 @@ const server = new ApolloServer({
     cors: true,
     playground: true,
 });
-server.applyMiddleware({ app });
+
 server.listen({ port: 4000 }).then(({ url }) => {
     console.log(`Server running at ${url}`);
 });
