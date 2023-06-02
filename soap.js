@@ -7,7 +7,7 @@ export async function VerRequest() {
     </Body>
     </Envelope>
     `
-    var url = "http://localhost:8081/ws/cafeteria.wsdl"
+    var url = "https://soapventas-production.up.railway.app/ws/cafeteria.wsdl"
     return new Promise((resolve, reject) => {
         soap.createClient(url, function (error, client) {
             if (error) {
@@ -36,7 +36,7 @@ export async function AgregarVentaRequest(nombreV, productos, totalpago){
     </Body>
 </Envelope>
     `
-    var url = "http://localhost:8081/ws/cafeteria.wsdl"
+    var url = "https://soapventas-production.up.railway.app/ws/cafeteria.wsdl"
     return new Promise((resolve, reject) => {
         soap.createClient(url, function (error, client) {
             if (error) {
