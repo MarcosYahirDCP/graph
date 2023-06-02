@@ -118,7 +118,7 @@ const resolvers = {
           </Envelope>`;
     
           try {
-            const response = await fetch('http://localhost:8081/ws/cafeteria.wsdl', {
+            const response = await fetch('https://soapventas-production.up.railway.app/ws/cafeteria.wsdl', {
               method: 'POST',
               headers: {
                 'Content-Type': 'text/xml',
