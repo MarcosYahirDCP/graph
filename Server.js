@@ -1,5 +1,5 @@
 import { gql, ApolloServer } from "apollo-server";
-import { VerRequest} from "./soap.js";
+import { VerRequest, AgregarVentaRequest} from "./soap.js";
 import { verVendedores, crearVendedor, verVendedor,borrarVendedor, modificarVendedor } from "./Rest.js";
 
 // Ver todas las definiciones
