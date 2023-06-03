@@ -106,39 +106,18 @@ const resolvers = {
         }
       },
 
-        agregarVenta: async (_, { nombreV, productos, totalpago }) => {
-          const soapEnvelope = `<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-            <Body>
-                <AgregarVentaRequest xmlns="https://t4is.uv.mx/cafeteria">
-                    <nombreV>${nombreV}</nombreV>
-                    <productos>${productos}</productos>
-                    <totalpago>${totalpago}</totalpago>
-                </AgregarVentaRequest>
-            </Body>
-          </Envelope>`;
-    
-          try {
-            const response = await fetch('https://soapventas-production.up.railway.app/ws/cafeteria.wsdl', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'text/xml',
-              },
-              body: soapEnvelope,
-            });
-    
-            // Verificar si la solicitud fue exitosa
-            if (response.ok) {
-              // Aquí puedes realizar cualquier procesamiento adicional según la respuesta del servicio SOAP
-              return true;
-            } else {
-              throw new Error(`Error en la solicitud SOAP: ${response.statusText}`);
-            }
-          } catch (error) {
-            console.error('Error al realizar la solicitud SOAP:', error);
-            throw new Error('Error al realizar la solicitud SOAP');
-          }
-        },
-      },
+      agregarVenta: async (_, { nombreV, productos, totalpago }) => {
+      try {
+        const response = await AgregarVentaRequest(nombreV, productos, totalpago);
+        // Aquí puedes realizar cualquier procesamiento adicional según la respuesta del servicio SOAP
+        return true;
+      } catch (error) {
+        console.error('Error al realizar la solicitud SOAP:', error);
+        throw new Error('Error al realizar la solicitud SOAP');
+      }
+    },
+  },
+
 };
 
 const server = new ApolloServer({
