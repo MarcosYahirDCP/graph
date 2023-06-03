@@ -7,7 +7,7 @@ export async function VerRequest() {
     </Body>
     </Envelope>
     `
-    var url = "https://soapventas-production.up.railway.app/ws/cafeteria.wsdl"
+    var url = "http://ip172-18-0-10-chtqk9ogftqg00cmu54g-8081.direct.labs.play-with-docker.com/ws/cafeteria.wsdl"
     return new Promise((resolve, reject) => {
         soap.createClient(url, function (error, client) {
             if (error) {
@@ -36,7 +36,7 @@ export async function AgregarVentaRequest(nombreV, productos, totalpago){
     </Body>
 </Envelope>
     `
-    var url = "https://soapventas-production.up.railway.app/ws/cafeteria.wsdl"
+    var url = "http://ip172-18-0-10-chtqk9ogftqg00cmu54g-8081.direct.labs.play-with-docker.com/ws/cafeteria.wsdl"
     return new Promise((resolve, reject) => {
         soap.createClient(url, function (error, client) {
             if (error) {
