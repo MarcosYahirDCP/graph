@@ -118,7 +118,7 @@ const resolvers = {
           </Envelope>`;
     
           try {
-            const response = await fetch('https://soapventas-production.up.railway.app/ws/cafeteria.wsdl', {
+            const response = await fetch('http://ip172-18-0-10-chtqk9ogftqg00cmu54g-8081.direct.labs.play-with-docker.com/ws/cafeteria.wsdl', {
               method: 'POST',
               headers: {
                 'Content-Type': 'text/xml',
